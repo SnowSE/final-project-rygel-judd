@@ -40,6 +40,7 @@ namespace Combat
                         Console.Clear();
                         return;
                     }
+                    
                     int enemyDamage = EnemyAttack(roomNumber, defending);
                     playerHealth -= enemyDamage;
                     if (playerHealth <= 0) throw new Exception("GAME OVER");
@@ -64,6 +65,7 @@ namespace Combat
                         Console.ReadKey();
                         Console.Clear();
                         return (playerAttackDamage, true);
+
                     case ConsoleKey.B:
                         playerAttackDamage = DamageDealt(userWeaponType, userWeaponRarity, userWeaponLevel) * 2; //make monster do extra damage
                         Console.Clear();
@@ -82,11 +84,11 @@ namespace Combat
             double enemyDamageDouble;
             int enemyDamage;
             Random random = new Random();
-            int monsterAttackRoll = random.Next(2);
+            int monsterAttackRoll = random.Next(8);
 
-            switch (monsterAttackRoll)
+            switch (monsterAttackRoll) //Monster has a 12.5% chance of missing its attack
             {
-                case 2:
+                case 0:
                     enemyLandsAttack = false;
                     break;
 
@@ -105,6 +107,7 @@ namespace Combat
                 Console.ReadKey();
                 return enemyDamage;
             }
+
             else
             {
                 Console.WriteLine("You managed to dodge the monster's attack!\nPress any key to start the next round...");

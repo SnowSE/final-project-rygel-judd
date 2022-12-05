@@ -3,6 +3,7 @@ namespace Mechanics
     public class Utilities
     {
 
+
         public static string RollEnemy()
         {
             string[] monsters = { "Skeleton", "Zombie", "Giant Spider", "Ghoul", "Goblin", "Troll", "Slime", "Giant Rat" };
@@ -25,27 +26,32 @@ namespace Mechanics
         {
             Random random = new Random();
             int rollNumber = random.Next(chancePercentage);
-            //common 1-45 for 45%, starts at 1 since random doesn't include 0 in its roll
+
+            //Common 1-45 for 45%, starts at 1 since random doesn't include 0 in its roll
             if (rollNumber <= 45 && rollNumber >= 1)
             {
                 return "Common";
             }
-            //uncommon 46-75 for 30%
+
+            //Uncommon 46-75 for 30%
             else if (rollNumber >= 46 && rollNumber <= 75)
             {
                 return "Uncommon";
             }
-            //epic 76-95 for 20%
+
+            //Epic 76-95 for 20%
             else if (rollNumber >= 76 && rollNumber <= 95)
             {
                 return "Epic";
             }
-            //legendary 96-100 for 5%
+
+            //Legendary 96-100 for 5%
             else if (rollNumber >= 96 && rollNumber <= 100)
             {
                 return "Legendary";
             }
-            else return "Common";
+
+            else return "Common"; //The Beginner's Dagger's rarity counts as common
         }
 
 
@@ -90,6 +96,7 @@ namespace Mechanics
                         Console.Clear();
                         Console.WriteLine($"You drop your {equippedWeapon} and pick up the {droppedWeapon}.");
                         return true;
+
                     case ConsoleKey.B:
                         Console.Clear();
                         Console.WriteLine("Your current weapon has now gained a level.");
@@ -118,13 +125,14 @@ namespace Mechanics
                         if (weaponRarity == "Common") weaponRarity = "Uncommon";
                         else if (weaponRarity == "Uncommon") weaponRarity = "Epic";
                         else if (weaponRarity == "Epic") weaponRarity = "Legendary";
-                        else
+                        else //If the weapon's rarity is already Legendary then the blacksmith will just increase its level by 2
                         {
                             Console.WriteLine("The blacksmith informs you that your weapon cannot be refined any further.");
                             Console.WriteLine("The blacksmith takes your weapon and reinforces it, increasing its level by 2.");
                             weaponLevel += 2;
                         }
                         break;
+
                     case ConsoleKey.B:
                         Console.Clear();
                         Console.WriteLine("The blacksmith takes your weapon and reinforces it, increasing its level by 2.");
