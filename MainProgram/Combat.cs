@@ -40,7 +40,7 @@ namespace Combat
                         Console.Clear();
                         return;
                     }
-                    
+
                     int enemyDamage = EnemyAttack(roomNumber, defending);
                     playerHealth -= enemyDamage;
                     if (playerHealth <= 0) throw new Exception("GAME OVER");
@@ -88,7 +88,7 @@ namespace Combat
 
             switch (monsterAttackRoll) //Monster has a 12.5% chance of missing its attack
             {
-                case 0:
+                case 1:
                     enemyLandsAttack = false;
                     break;
 

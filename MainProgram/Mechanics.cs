@@ -8,7 +8,7 @@ namespace Mechanics
         {
             string[] monsters = { "Skeleton", "Zombie", "Giant Spider", "Ghoul", "Goblin", "Troll", "Slime", "Giant Rat" };
             Random random = new Random();
-            int monsterRoll = random.Next(7);
+            int monsterRoll = random.Next(8);
             return monsters[monsterRoll];
         }
 
